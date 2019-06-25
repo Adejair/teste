@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
+#include <curses.h> 
 #include <stdlib.h>
-#include <conio.h>
 #include <string.h>
 #include <time.h>
 #define cls system("cls");
@@ -39,7 +39,7 @@ int main() {
     }
     else if(opcao=='3') return 0;
     for(int n=0;;n++) { descoberto[n]=resposta[n]=='\0'?'\0':'-'; if(resposta[n]=='\0') break; }
-    while(vidas && stricmp(descoberto,resposta)) {
+    while(vidas && strcmp(descoberto,resposta)) {
       cls
       cout << "Palavra: ";
       for(int n=0;descoberto[n]!='\0';n++) cout << descoberto[n];
