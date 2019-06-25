@@ -1,11 +1,13 @@
 #include <iostream>
 #include <stdio.h>
-#include <curses.h> 
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #define cls system("cls");
 #define pause system("pause");
+
+
 
 using namespace std;
 
@@ -31,7 +33,7 @@ int main() {
     }
     int escolha=rnd(0,total),vidas=5,ok=1,ja=0;
     cout << "Selecione uma opcao:\n\n[1] Jogar sozinho\n[2] Jogar com um amigo\n[3] Sair\n";
-    char opcao=getch();
+    char opcao=getchar();
     for(int n=0;palavra[escolha][n];n++) resposta[n]=palavra[escolha][n];
     if(opcao=='2') {
       cout << "\nDigite a palavra para seu amigo tentar descobrir ... ";
@@ -55,7 +57,7 @@ int main() {
         else cout << "\n\nAcertou!!!\n";
       }
       if(vidas) {
-        ja=0; cout << "\nDigite uma letra... "; letra=getch();
+        ja=0; cout << "\nDigite uma letra... "; letra=getchar();
         for(int n=0;!ja;n++) {
           if(jafoi[n]==letra) ja=1;
           else if(jafoi[n]=='\0') { jafoi[n]=letra,jafoi[++n]='\0'; break; }
@@ -67,6 +69,6 @@ int main() {
     cls
     if(vidas) cout << "Parabens!!! Voce descobriu a palavra (" << resposta << ")\n\n";
     cout << "Pressione qualquer tecla para reiniciar...";
-    getch();
+    getchar();
   }
 }
