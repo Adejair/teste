@@ -4,7 +4,6 @@
 #include <string.h>
 #include <time.h>
 
-#define cls system("cls");
 #define pause system("pause");
 
 
@@ -16,7 +15,7 @@ int rnd(int low,int high) { return low+(double)rand()/((double)RAND_MAX+1)*(high
 int main() {
   srand((unsigned)time(NULL)); int n=rnd(0,4);
   while(1) {
-    cls
+    system("clear");
     int total=0;
     char palavra[100][100]={
       "melancia","sorvete","pudim","gelatina","manga","goiaba","uva","banana","espinafre","nabo","repolho",
@@ -42,7 +41,7 @@ int main() {
     else if(opcao=='3') return 0;
     for(int n=0;;n++) { descoberto[n]=resposta[n]=='\0'?'\0':'-'; if(resposta[n]=='\0') break; }
     while(vidas && strcmp(descoberto,resposta)) {
-      cls
+      system("clear");
       cout << "Palavra: ";
       for(int n=0;descoberto[n]!='\0';n++) cout << descoberto[n];
       cout << "\nLetras usadas: ";
@@ -66,7 +65,7 @@ int main() {
         for(int n=0;resposta[n]!='\0' && !ja;n++) { if(resposta[n] == letra) descoberto[n]=letra,ok=1; }
       }
     }
-    cls
+    system("clear");
     if(vidas) cout << "Parabens!!! Voce descobriu a palavra (" << resposta << ")\n\n";
     cout << "Pressione qualquer tecla para reiniciar...";
     getchar();
