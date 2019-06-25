@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 
+
 #define pause system("pause");
 
 
@@ -32,7 +33,7 @@ int main() {
     }
     int escolha=rnd(0,total),vidas=5,ok=1,ja=0;
     cout << "Selecione uma opcao:\n\n[1] Jogar sozinho\n[2] Jogar com um amigo\n[3] Sair\n";
-    char opcao=getchar();
+    char opcao = (char)cin.get() ;
     for(int n=0;palavra[escolha][n];n++) resposta[n]=palavra[escolha][n];
     if(opcao=='2') {
       cout << "\nDigite a palavra para seu amigo tentar descobrir ... ";
@@ -52,11 +53,10 @@ int main() {
           if (vidas>0) printf("\n\nErrou!!! Voce ainda tem %d tentativa%s\n",vidas,vidas>1?"s":"");
           else cout << "\n\nErrou!!! Voce perdeu, pois acabaram suas tentativas!!!\n\nA palavra era: " << resposta << endl;
         }
-        else if(ja) cout << "\n\nA letra '" << letra << "' ja foi usada!!!\n";
         else cout << "\n\nAcertou!!!\n";
       }
       if(vidas) {
-        ja=0; cout << "\nDigite uma letra... "; letra=getchar();
+        ja=0; cout << "\nDigite uma letra... "; letra= (char)cin.get() ;
         for(int n=0;!ja;n++) {
           if(jafoi[n]==letra) ja=1;
           else if(jafoi[n]=='\0') { jafoi[n]=letra,jafoi[++n]='\0'; break; }
@@ -68,6 +68,6 @@ int main() {
     system("clear");
     if(vidas) cout << "Parabens!!! Voce descobriu a palavra (" << resposta << ")\n\n";
     cout << "Pressione qualquer tecla para reiniciar...";
-    getchar();
+    (char)cin.get() ;
   }
 }
